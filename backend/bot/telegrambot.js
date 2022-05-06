@@ -47,6 +47,10 @@ class TelegramBot {
     }
     setTimeout(loop, 1)
   }
+
+  webhook(callback) {
+    return update => callback(update)()
+  }
 }
 
 module.exports = TelegramBot

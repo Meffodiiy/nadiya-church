@@ -35,7 +35,6 @@ app.get('/getPendingMessage', async (req, res) => {
 })
 
 app.post(`/${ TOKEN }`, (req, res) => {
-  console.log('REQ.BODY', req.body)
   bot.webhook(req.body)
   res.sendStatus(200)
 })

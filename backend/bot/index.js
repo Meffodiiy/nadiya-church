@@ -36,5 +36,5 @@ function onUpdateReceived (update) {
 
 module.exports = {
   longPolling: () => bot.longPolling(onUpdateReceived),
-  webhook: onUpdateReceived
+  webhook: bot.webhook(onUpdateReceived)
 }
