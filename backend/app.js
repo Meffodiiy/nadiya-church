@@ -2,6 +2,7 @@ require('dotenv').config()
 
 const path = require('path')
 const express = require('express')
+const bodyParser = require('body-parser')
 
 const bot = require('./bot')
 const { PendingMessage } = require('./orm')
@@ -10,6 +11,8 @@ const app = express()
 const { PORT, TOKEN, WEBHOOK } = process.env
 
 
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true }))
 app.use(express.static(path.resolve(__dirname, '../frontend/dist')))
 
 app.get('/', (req, res) => {
