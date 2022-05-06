@@ -7,7 +7,7 @@ const bot = require('./bot')
 const { PendingMessage } = require('./orm')
 
 const app = express()
-const { PORT = 2901 } = process.env
+const { PORT, TOKEN, WEBHOOK } = process.env
 
 
 app.use(express.static(path.resolve(__dirname, '../frontend/dist')))
@@ -31,7 +31,8 @@ app.get('/getPendingMessage', async (req, res) => {
   })
 })
 
-app.post(`/${ bot.TOKEN }`, (req, res) => {
+app.post(`/${ TOKEN }`, (req, res) => {
+  console.log('REQ.BODY', req.body)
   bot.webhook(req.body)
   res.sendStatus(200)
 })
@@ -40,5 +41,5 @@ app.listen(PORT, () => {
   console.log(`App is listening on port ${ PORT }`)
 })
 
-if (process.env.WEBHOOK === 'no')
+if (WEBHOOK === 'no')
   bot.longPolling()

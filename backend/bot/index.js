@@ -35,7 +35,6 @@ function onUpdateReceived (update) {
 }
 
 module.exports = {
-  TOKEN,
   longPolling: () => bot.longPolling(onUpdateReceived),
   webhook: onUpdateReceived
 }
