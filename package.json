@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "be/start": "node backend/app.js",
-    "fe/start": "webpack serve --config frontend/webpack.config.js --open --hot"
+    "fe/start": "webpack serve --config frontend/webpack.config.js --open --hot",
+    "fe/build": "webpack --config frontend/webpack.config.js"
   },
   "author": "Meffodiiy <meffodiiy@gmail.com>",
   "license": "ISC",

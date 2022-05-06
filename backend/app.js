@@ -1,5 +1,6 @@
 require('dotenv').config()
 
+const path = require('path')
 const express = require('express')
 
 const bot = require('./bot')
@@ -9,8 +10,10 @@ const app = express()
 const { PORT = 2901 } = process.env
 
 
-app.get('/', (req, res) => {
+app.use(express.static(path.resolve(__dirname, '../frontend/dist')))
 
+app.get('/', (req, res) => {
+  res.sendFile('index.html')
 })
 
 app.get('/getPendingMessage', async (req, res) => {

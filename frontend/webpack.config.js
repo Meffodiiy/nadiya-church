@@ -5,7 +5,7 @@ module.exports = {
   mode: 'development',
   entry: './frontend/src/entry.tsx',
   output: {
-    path: path.resolve(__dirname, 'frontend/dist'),
+    path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js'
   },
   resolve: {
