@@ -31,13 +31,14 @@ app.get('/getPendingMessage', async (req, res) => {
   })
 })
 
-// app.post(`/${ bot.TOKEN }`, (req, res) => {
-//   bot.webhook(req.body)
-//   res.sendStatus(200)
-// })
+app.post(`/${ bot.TOKEN }`, (req, res) => {
+  bot.webhook(req.body)
+  res.sendStatus(200)
+})
 
 app.listen(PORT, () => {
   console.log(`App is listening on port ${ PORT }`)
 })
 
-bot.longPolling()
+if (process.env.WEBHOOK === 'no')
+  bot.longPolling()
