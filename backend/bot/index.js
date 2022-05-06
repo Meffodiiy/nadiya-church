@@ -1,7 +1,7 @@
 const TelegramBot = require('./telegrambot')
 const { PendingMessage } = require('../orm')
 
-const TOKEN = '5378533639:AAEyyH_i6eZx5elmused0p-jSC4_jp9_1V8'
+const { TOKEN } = process.env
 const CHANNEL_ID = -1001527772169
 
 const bot = new TelegramBot(TOKEN)

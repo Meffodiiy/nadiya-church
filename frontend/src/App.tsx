@@ -1,14 +1,11 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect } from 'react'
 
 
 const App = () => {
 
   const [content, setContent] = useState('')
 
-  const longPollingIsOn = useRef(false)
-
   useEffect(() => {
-    if (longPollingIsOn.current) return
     const loop = () => {
       fetch('/getPendingMessage')
         .then(response => response.json())
@@ -19,7 +16,6 @@ const App = () => {
         })
     }
     setTimeout(loop, 0)
-    longPollingIsOn.current = true
   }, [])
 
   return (
